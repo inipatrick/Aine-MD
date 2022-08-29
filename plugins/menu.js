@@ -5,6 +5,7 @@ let fetch = require('node-fetch')
 let moment = require('moment-timezone')
 let levelling = require('../lib/levelling')
 let tags = {
+  'new': 'New Fitur',
   'rpgabsen': 'Rpg-Absen',
   'rpg': 'Rpg',
   'game': 'Game',
@@ -44,6 +45,7 @@ Hai, %ucapan %name! 👋
 *Hari:* %week
 *Tanggal:* %date
 *Uptime:* %uptime (%muptime)
+*Role:* %role
 
 *Limit:* %limit
 *Level:* %level
@@ -157,7 +159,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Aine', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
+    conn.sendButton(m.chat, text.trim(), 'Made with ♡ by Ndaa', null, [['Donasi', '.donasi'],['Owner', '.owner']], m)
     /*conn.sendHydrated(m.chat, text.trim(), 'Ⓟ premium | Ⓛ limit', null, 'https://aiinne.github.io/', 'Website', '', '', [
       ['Donate', '/donasi'],
       ['Sewa Bot', '/sewa'],
